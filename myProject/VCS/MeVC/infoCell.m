@@ -12,12 +12,20 @@
 
 - (void)awakeFromNib {
     // Initialization code
+    self.informationTF.delegate = self;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
 
     // Configure the view for the selected state
+}
+
+- (void)textFieldDidEndEditing:(UITextField *)textField {
+
+    if (self.delegate) {
+        [self.delegate textFieldDidChange:self];
+    }
 }
 
 @end

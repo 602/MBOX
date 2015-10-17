@@ -74,6 +74,23 @@ SINGLETON_GCD(Cache);
     }
 }
 
+- (void)setIsAutoLogin:(BOOL)isAutoLogin {
+    NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
+    [ud removeObjectForKey:@"isAutoLogin"];
+    [ud setObject:[NSNumber numberWithBool:isAutoLogin] forKey:@"isAutoLogin"];
+    [ud synchronize];
+}
+
+- (BOOL)isAutoLogin {
+    NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
+    NSNumber *value = [ud objectForKey:@"isAutoLogin"];
+    if (value && [value boolValue]) {
+        return YES;
+    } else {
+        return NO;
+    }
+}
+
 - (void)setSession:(long)session {
     NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
     [ud removeObjectForKey:@"session"];

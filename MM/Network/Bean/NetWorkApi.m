@@ -55,6 +55,7 @@ SINGLETON_GCD(NetWorkApi);
     }];
 }
 
+<<<<<<< HEAD
 //收益
 - (void)getUserMoneyListWithSuccess:(ObjectBlock)success failure:(ErrorBlock)failure {
     NSDictionary *param = [NSDictionary dictionaryWithObjects:@[[Cache sharedCache].tokenId] forKeys:@[@"tokenId"]];
@@ -76,6 +77,16 @@ SINGLETON_GCD(NetWorkApi);
         success (obj);
     } failure:^(NSError *error) {
         failure (error);
+=======
+//修改个人信息
+- (void)updateUserInfo:(id)param success:(ObjectBlock)success failure:(ErrorBlock)failure {
+    [[NetWorkRequest sharedNetWorkRequest] postByApiName:@"user/updateUserBasic" Params:param success:^(id obj) {
+        QQLog(@"修改个人信息：%@",obj);
+        MUserModel *mUserModel = [MMJsonParse parseMUserModel:obj];
+        success(mUserModel);
+    } failure:^(NSError *error) {
+        failure(error);
+>>>>>>> origin/master
     }];
 }
 @end

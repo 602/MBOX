@@ -171,8 +171,10 @@
 //登录
 - (void)presentSigninViewController:(BOOL)autoLogin {
     if (autoLogin) {
+        [[Cache sharedCache] setIsAutoLogin:YES];
         [self presentMenuViewController];
     }else {
+        [[Cache sharedCache] setIsAutoLogin:NO];
         LoginVC *loginVc = [[LoginVC alloc]_initWithNib];
         UINavigationController *loginNav = [[UINavigationController alloc] initWithRootViewController:loginVc];
         self.window.rootViewController = loginNav;

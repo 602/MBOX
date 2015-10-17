@@ -34,6 +34,11 @@
 #import <MAMapKit/MAMapKit.h>//高德地图
 #import <AlipaySDK/AlipaySDK.h>//阿里支付
 #import <APService.h>//极光
+<<<<<<< HEAD
+=======
+#import <EaseMob.h>//环信
+
+>>>>>>> origin/master
 #import "MBProgressHUD.h"
 #import "GCDObjC.h"
 #import "UICKeyChainStore.h"
