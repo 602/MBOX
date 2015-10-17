@@ -54,4 +54,25 @@ SINGLETON_GCD(NetWorkApi);
         failure(error);
     }];
 }
+
+//收益
+- (void)getUserMoneyListWithSuccess:(ObjectBlock)success failure:(ErrorBlock)failure {
+    NSDictionary *param = [NSDictionary dictionaryWithObjects:@[[Cache sharedCache].tokenId] forKeys:@[@"tokenId"]];
+    [[NetWorkRequest sharedNetWorkRequest]AFPostByApiName:@"/profit/getUserProfit" Params:param success:^(id obj) {
+        QQLog(@"啦啦啦: %@",obj);
+        success (obj);
+    } failure:^(NSError *error) {
+        failure (error);
+    }];
+}
+
+//注销
+- (void)cancelAppWithsuccess:(ObjectBlock)success failure:(ErrorBlock)failure {
+    NSDictionary *param = [NSDictionary dictionaryWithObjects:@[[Cache sharedCache].tokenId] forKeys:@[@"tokenId"]];
+    [[NetWorkRequest sharedNetWorkRequest]AFPostByApiName:@"user/logout" Params:param success:^(id obj) {
+        success (obj);
+    } failure:^(NSError *error) {
+        failure (error);
+    }];
+}
 @end

@@ -8,6 +8,7 @@
 
 #import "CheckVC.h"
 #import "CheckCell.h"
+#import "NetWorkApi.h"
 @interface CheckVC ()<UITableViewDataSource,UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *checkTV;
 
@@ -18,7 +19,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"收益明细";
-    
     /**
      *  添加推广页
      */
@@ -26,6 +26,11 @@
     [self.checkTV registerNib:nib forCellReuseIdentifier:checkCellIdentifier];
     self.checkTV.dataSource = self;
     self.checkTV.delegate = self;
+    [[NetWorkApi sharedNetWorkApi]getUserMoneyListWithSuccess:^(id obj) {
+        
+    } failure:^(NSError *error) {
+        
+    }];
 }
 
 #pragma mark - UITableViewDatasourse

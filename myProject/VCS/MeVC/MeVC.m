@@ -65,9 +65,14 @@
 #pragma mark - EventResponce
 
 - (void)didClickOnCancelButton:(UIButton *)btn {
-    [[Cache sharedCache] resetUser];
-    AppDelegate *app = (AppDelegate *)[UIApplication sharedApplication].delegate;
-    [app replaceRootControllerBy:kRootViewControllerTypeLoginVC];
+    [[NetWorkApi sharedNetWorkApi]cancelAppWithsuccess:^(id obj) {
+        [[Cache sharedCache] resetUser];
+        AppDelegate *app = (AppDelegate *)[UIApplication sharedApplication].delegate;
+        [app replaceRootControllerBy:kRootViewControllerTypeLoginVC];
+    } failure:^(NSError *error) {
+        
+    }];
+    
 }
 
 -(void)viewDidDisappear:(BOOL)animated {
