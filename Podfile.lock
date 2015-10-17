@@ -26,7 +26,6 @@ PODS:
   - EaseMobSDK (2.1.8)
   - IQKeyboardManager (3.2.3)
   - JPushSDK (1.8.2)
-  - libWeChatSDK (1.5)
   - MagicalRecord (2.2):
     - MagicalRecord/Core (= 2.2)
   - MagicalRecord/Core (2.2)
@@ -34,8 +33,6 @@ PODS:
   - SDWebImage (3.7.2):
     - SDWebImage/Core (= 3.7.2)
   - SDWebImage/Core (3.7.2)
-  - shareSDK (0.0.2)
-  - UMengAnalytics (3.5.8)
 
 DEPENDENCIES:
   - AFNetworking (~> 2.0)
@@ -45,12 +42,9 @@ DEPENDENCIES:
   - EaseMobSDK
   - IQKeyboardManager
   - JPushSDK (~> 1.8.2)
-  - libWeChatSDK (~> 1.5)
   - MagicalRecord
   - Masonry
   - SDWebImage (~> 3.6)
-  - shareSDK (~> 0.0.2)
-  - UMengAnalytics
 
 SPEC CHECKSUMS:
   AFNetworking: 05edc0ac4c4c8cf57bcf4b84be5b0744b6d8e71e
@@ -60,11 +54,8 @@ SPEC CHECKSUMS:
   EaseMobSDK: 639251847fa6de8cd752a6d4ca841e1753903683
   IQKeyboardManager: 6ca5c54e3776eb54af4c7caf515833f3cd761d59
   JPushSDK: c68dd04c595a5c93aa003f212974010790410d8e
-  libWeChatSDK: 507641cfe6344f9fed4dfb5596d856d4e5953486
   MagicalRecord: f8a56bb87ab6552f20c4bb8681a1958a197ea3cd
   Masonry: 4972309f2f134de9dd312f4dc4a21359b50e6caa
   SDWebImage: 71b7cdc1d1721d6a82ed62889030225f2c249e29
-  shareSDK: a09e5dc23836e9743a2a10f7949aa6bd9941b161
-  UMengAnalytics: 020551718ba37da017bd85ac4c38ffba2774f3ce
 
-COCOAPODS: 0.37.2
+COCOAPODS: 0.39.0

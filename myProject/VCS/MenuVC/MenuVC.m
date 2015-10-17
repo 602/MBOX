@@ -40,9 +40,7 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     self.navigationController.navigationBarHidden = YES;
-    if ([Cache sharedCache].cookie) {
-        [self autoLoginAction];
-    }
+    
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -76,7 +74,7 @@
     [self.tableView registerNib:nib forCellReuseIdentifier:menuCellIdentifier];
     self.tableView.tableHeaderView = self.headBackView;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    [self downLoadData];
+    [self autoLoginAction];
 }
 
 - (void)viewWillLayoutSubviews {
@@ -109,7 +107,7 @@
             [[Cache sharedCache] setCookie:YES];
             [weakSelf downLoadData];
         }else {
-            [Utils showToastWithText:@"用户名或密码错误!"];
+            [Utils showToastWithText:@"网络错误,请重新登录!"];
         }
     } failure:^(NSError *error) {
         QQLog(@"自动登录失败: %@",error);

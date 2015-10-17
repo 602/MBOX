@@ -17,8 +17,8 @@
     mUserModel.tokenId = [[dic objectForKey:@"tokenId"]safeString];
     mUserModel.statusCode = [[dic objectForKey:@"statusCode"]integerValue];
     //用户数据
-    NSDictionary *obj = [dic objectForKey:@"userData"];
-    mUserModel.userIndex = [[obj objectForKey:@"userIndex"]integerValue];
+    NSDictionary *obj = [dic objectForKey:@"data"];
+    mUserModel.userIndex = [[obj objectForKey:@"userIndex"] integerValue];
     mUserModel.userSmallHeadImgUrl = [[obj objectForKey:@"userSmallHeadImgUrl"]safeString];
     return mUserModel;
 }

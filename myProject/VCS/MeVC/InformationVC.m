@@ -8,18 +8,60 @@
 
 #import "InformationVC.h"
 #import "infoCell.h"
+
+@interface InformationModel : NSObject
+@property (strong ,nonatomic) NSString *title;
+@property (strong ,nonatomic) NSString *subTitle;
++ (InformationModel *)modelWith:(NSString *)title and:(NSString *)subTitle;
+@end
+
+@implementation InformationModel
+
++ (InformationModel *)modelWith:(NSString *)title and:(NSString *)subTitle {
+    InformationModel *model = [[InformationModel alloc] init];
+    model.title = title;
+    model.subTitle = subTitle;
+    return model;
+}
+
+@end
+
 @interface InformationVC ()<UITableViewDataSource,UITableViewDelegate>
+@property (weak, nonatomic) IBOutlet UIImageView *headImageView;
 @property (strong, nonatomic) IBOutlet UITableView *infoTV;
 @property (strong, nonatomic) IBOutlet UIView *infoHV;
 @property (strong, nonatomic) IBOutlet UIButton *commitButton;
+
+@property (strong, nonatomic) NSArray *dataArray;
 
 @end
 
 @implementation InformationVC
 
+#pragma mark - Life Cycle
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"个人资料";
+    [self initData];
+    [self initTableView];
+    
+}
+
+#pragma mark - Private Method
+
+- (void)initData {
+    
+    InformationModel *model_1 = [InformationModel modelWith:@"昵称" and:[MUserModel sharedMUserModel].userNick];
+    InformationModel *model_2 = [InformationModel modelWith:@"性别" and:[MUserModel sharedMUserModel].userSex];
+    InformationModel *model_3 = [InformationModel modelWith:@"生日" and:[MUserModel sharedMUserModel].userBirthday];
+    InformationModel *model_4 = [InformationModel modelWith:@"职业" and:[MUserModel sharedMUserModel].userProfession];
+    InformationModel *model_5 = [InformationModel modelWith:@"城市" and:[MUserModel sharedMUserModel].userCity];
+    self.dataArray = @[model_1,model_2,model_3,model_4,model_5];
+    
+}
+
+- (void)initTableView {
     self.infoTV.tableHeaderView = self.infoHV;
     self.infoTV.tableFooterView = self.commitButton;
     self.infoTV.delegate = self;
@@ -27,45 +69,24 @@
     UINib* nib = [UINib nibWithNibName:@"infoCell" bundle:nil];
     [self.infoTV registerNib:nib forCellReuseIdentifier:infoCellIdentifier];
     self.infoTV.separatorStyle = UITableViewCellSeparatorStyleNone;
+    
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didClickOnHeadImage:)];
+    [self.headImageView addGestureRecognizer:tap];
 }
 
 #pragma mark - UITableViewDatasourse
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 4;
+    return self.dataArray.count;
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    InformationModel *model = self.dataArray[indexPath.row];
     infoCell *cell = [tableView dequeueReusableCellWithIdentifier:infoCellIdentifier forIndexPath:indexPath];
-    switch (indexPath.row) {
-        case 0:
-        {
-            cell.headLabel.text = @"昵称";
-            cell.informationTF.text = @"颜斌斌";
-        }
-            break;
-            
-        case 1:
-        {
-            cell.headLabel.text = @"性别";
-            cell.informationTF.text = @"男";
-        }
-            break;
-        case 2:
-        {
-            cell.headLabel.text = @"生日";
-            cell.informationTF.text = @"1990-01-03";
-        }
-            break;
-        case 3:
-        {
-            cell.headLabel.text = @"职业";
-            cell.informationTF.text = @"其他";
-        }
-            break;
-            
-    }
+    cell.headLabel.text = model.title;
+    cell.informationTF.text = model.subTitle;
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
@@ -78,6 +99,17 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - Event Respnoce
+
+- (IBAction)commitAction:(UIButton *)sender {
+    
+    
+}
+
+- (void)didClickOnHeadImage:(UITapGestureRecognizer *)tap {
+    
 }
 
 /*

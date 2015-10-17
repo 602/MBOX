@@ -59,6 +59,8 @@
 
 @property (nonatomic, strong) NSString *userStatus;
 
+@property (nonatomic, strong) NSString *userBirthday;
+
 
 
 

@@ -4,75 +4,65 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>Pods-AFNetworking.xcscheme</key>
+		<key>AFNetworking.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>2</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
-		<key>Pods-IQKeyboardManager.xcscheme</key>
+		<key>IQKeyboardManager.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>3</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
-		<key>Pods-MagicalRecord.xcscheme</key>
+		<key>MagicalRecord.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>4</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
-		<key>Pods-Masonry.xcscheme</key>
+		<key>Masonry.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>5</integer>
-		</dict>
-		<key>Pods-SDWebImage.xcscheme</key>
-		<dict>
-			<key>orderHint</key>
-			<integer>6</integer>
-		</dict>
-		<key>Pods-shareSDK.xcscheme</key>
-		<dict>
-			<key>orderHint</key>
-			<integer>7</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>Pods.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>1</integer>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>SDWebImage.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>579FF1C5C48E24C3B8B05841</key>
+		<key>0FAD17C02CA38BC8BCABDA2D76C38EC6</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>5980030B82C7E80BBA5500AA</key>
+		<key>2602F3D0DAC534568B6AD7EEA0DD1959</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>789EB7796743553E25C9A230</key>
+		<key>29852B71914AA2E261D18F89DE5A907F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>891547D8778B7FC4FC5F96D3</key>
+		<key>3696AEC5C64CF927AE94AA15DE8B5223</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A7783616E9992CA5E242926B</key>
+		<key>C5223DE4B9B3E8836934BA03080B4442</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>FCF5FDBE9F45DE26E9F70046</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>FEC16931745B9E7FB704B9A4</key>
+		<key>F68FB1819333E53B20304E6ED84A2B7F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
