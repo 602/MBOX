@@ -12,6 +12,9 @@
 #import "ZZTextField.h"
 #import "AppDelegate.h"
 #import "MUserModel.h"
+
+#import "UMSocialQQHandler.h"
+#import "UMSocial.h"
 @interface LoginVC ()
 @property (weak, nonatomic) IBOutlet ZZTextField *phoneTF;
 
@@ -30,9 +33,6 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-
-//    [self.phoneTF addLeftViewLabel:@"用户名"];
-//    [self.passwordTF addLeftViewLabel:@"密   码"];
 }
 //forget密码
 - (IBAction)forgetPassword:(UIButton *)sender {
@@ -70,20 +70,54 @@
             
     } failure:^(NSError *error) {
         QQLog(@"登录失败: %@",error);
+        [Utils hideLoadingView];
     }];
     
 }
 
-
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (IBAction)didClickOnThird:(UIButton *)sender {
+    QQLog(@"三方登入: %ld",sender.tag);
+    //登入类型
+    NSString *enterType;
+    switch (sender.tag) {
+        case 1:
+        {
+            //QQ
+            [UMSocialQQHandler setQQWithAppId:@"1104839918" appKey:@"ATjBDm3Y71P1aPOF" url:@"http://www.umeng.com/social"];
+            enterType = UMShareToQQ;
+        }
+            break;
+            
+        case 2:
+        {
+            
+            //微信
+            enterType = UMShareToWechatSession;
+        }
+            break;
+            
+        case 3:
+        {
+            //新浪
+            enterType = UMShareToSina;
+        }
+            break;
+    }
+    UMSocialSnsPlatform *snsPlatform = [UMSocialSnsPlatformManager getSocialPlatformWithName:enterType];
+    
+    snsPlatform.loginClickHandler(self,[UMSocialControllerService defaultControllerService],YES,^(UMSocialResponseEntity *response){
+        
+        if (response.responseCode == UMSResponseCodeSuccess) {
+            
+            UMSocialAccountEntity *snsAccount = [[UMSocialAccountManager socialAccountDictionary]valueForKey:enterType];
+            
+            NSLog(@"username is %@, uid is %@, token is %@ url is %@",snsAccount.userName,snsAccount.usid,snsAccount.accessToken,snsAccount.iconURL);
+            
+        }
+        
+    });
+    
+    
+    
 }
-*/
-
 @end

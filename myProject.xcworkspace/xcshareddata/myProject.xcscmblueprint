@@ -1,13 +1,16 @@
 {
   "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "2C1340E5D748F720D98DA932B81206E3DA90E07D+++B27898B",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+    "40f4791e-336f-aa45-b57f-92e39076b825++942+++724E5AC" : {
+
+    },
     "40f4791e-336f-aa45-b57f-92e39076b825++942+++46DA138" : {
 
     },
-    "40f4791e-336f-aa45-b57f-92e39076b825++942+++F6B8622" : {
+    "40f4791e-336f-aa45-b57f-92e39076b825++942+++F3E8C01" : {
 
     },
-    "40f4791e-336f-aa45-b57f-92e39076b825++942+++F3E8C01" : {
+    "40f4791e-336f-aa45-b57f-92e39076b825++942+++F6B8622" : {
 
     },
     "40f4791e-336f-aa45-b57f-92e39076b825++5926+++D112849" : {
@@ -16,33 +19,35 @@
     "40f4791e-336f-aa45-b57f-92e39076b825++5926+++7E77529" : {
 
     },
-    "40f4791e-336f-aa45-b57f-92e39076b825++942+++0E548E1" : {
+    "40f4791e-336f-aa45-b57f-92e39076b825++42+++2F50E67" : {
 
     },
-    "40f4791e-336f-aa45-b57f-92e39076b825++42+++2F50E67" : {
+    "40f4791e-336f-aa45-b57f-92e39076b825++942+++0E548E1" : {
 
     }
   },
   "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
     "2C1340E5D748F720D98DA932B81206E3DA90E07D+++B27898B" : 0,
+    "40f4791e-336f-aa45-b57f-92e39076b825++942+++724E5AC" : 0,
     "40f4791e-336f-aa45-b57f-92e39076b825++942+++46DA138" : 0,
-    "40f4791e-336f-aa45-b57f-92e39076b825++942+++F6B8622" : 0,
     "40f4791e-336f-aa45-b57f-92e39076b825++942+++F3E8C01" : 0,
+    "40f4791e-336f-aa45-b57f-92e39076b825++942+++F6B8622" : 0,
     "40f4791e-336f-aa45-b57f-92e39076b825++5926+++D112849" : 0,
     "40f4791e-336f-aa45-b57f-92e39076b825++5926+++7E77529" : 0,
-    "40f4791e-336f-aa45-b57f-92e39076b825++942+++0E548E1" : 0,
-    "40f4791e-336f-aa45-b57f-92e39076b825++42+++2F50E67" : 0
+    "40f4791e-336f-aa45-b57f-92e39076b825++42+++2F50E67" : 0,
+    "40f4791e-336f-aa45-b57f-92e39076b825++942+++0E548E1" : 0
   },
   "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "B708DC6A-8829-4625-B2B0-D7C50458E926",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
     "2C1340E5D748F720D98DA932B81206E3DA90E07D+++B27898B" : "MBOX\/",
+    "40f4791e-336f-aa45-b57f-92e39076b825++942+++724E5AC" : "MBOX\/MM\/CommonViews\/WTLabel\/",
     "40f4791e-336f-aa45-b57f-92e39076b825++942+++46DA138" : "%E9%92%B1%E5%AE%B6\/MM\/Vendor\/UICKeyChainStore\/",
-    "40f4791e-336f-aa45-b57f-92e39076b825++942+++F6B8622" : "myProject1\/MM\/Vendor\/Refresh\/",
     "40f4791e-336f-aa45-b57f-92e39076b825++942+++F3E8C01" : "%E9%92%B1%E5%AE%B6\/MM\/Vendor\/MenuPopover\/",
+    "40f4791e-336f-aa45-b57f-92e39076b825++942+++F6B8622" : "myProject1\/MM\/Vendor\/Refresh\/",
     "40f4791e-336f-aa45-b57f-92e39076b825++5926+++D112849" : "MBOX\/MM\/Vendor\/MBProgressHUD\/",
     "40f4791e-336f-aa45-b57f-92e39076b825++5926+++7E77529" : "%E9%92%B1%E5%AE%B6\/MM\/Vendor\/MBProgressHUD\/",
-    "40f4791e-336f-aa45-b57f-92e39076b825++942+++0E548E1" : "myProject1\/MM\/Vendor\/Refresh\/",
-    "40f4791e-336f-aa45-b57f-92e39076b825++42+++2F50E67" : "%E9%92%B1%E5%AE%B6\/MM\/Vendor\/Refresh\/"
+    "40f4791e-336f-aa45-b57f-92e39076b825++42+++2F50E67" : "%E9%92%B1%E5%AE%B6\/MM\/Vendor\/Refresh\/",
+    "40f4791e-336f-aa45-b57f-92e39076b825++942+++0E548E1" : "myProject1\/MM\/Vendor\/Refresh\/"
   },
   "DVTSourceControlWorkspaceBlueprintNameKey" : "myProject",
   "DVTSourceControlWorkspaceBlueprintVersion" : 204,
@@ -77,6 +82,11 @@
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/192.168.1.3:8443\/svn\/qingqing_ios_code",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Subversion",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "40f4791e-336f-aa45-b57f-92e39076b825++942+++46DA138"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/192.168.1.3:8443\/svn\/qingqing_ios_code",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Subversion",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "40f4791e-336f-aa45-b57f-92e39076b825++942+++724E5AC"
     },
     {
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/192.168.1.3:8443\/svn\/qingqing_ios_code",

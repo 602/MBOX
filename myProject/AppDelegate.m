@@ -14,6 +14,7 @@
 #import "LoginVC.h"
 #import "UMessage.h"
 
+#import "UMSocial.h"
 #import "NetWorkRequest.h"
 
 @interface AppDelegate ()
@@ -28,6 +29,9 @@
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
+    [UMSocialData setAppKey:@"55faca4e67e58e276900382e"];
+    
     //友盟推送设置
     
     [UMessage startWithAppkey:@"55faca4e67e58e276900382e" launchOptions:launchOptions];
