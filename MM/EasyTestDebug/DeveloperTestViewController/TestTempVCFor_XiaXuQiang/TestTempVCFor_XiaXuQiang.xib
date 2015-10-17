@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TestTempVCFor_XiaXuQiang">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zIe-FJ-1NB">
+                    <rect key="frame" x="35" y="25" width="305" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="fg8-ME-JpT"/>
+                        <constraint firstAttribute="width" constant="305" id="wLi-Ku-1m9"/>
+                    </constraints>
+                    <state key="normal" title="测试调续课选择时间弹层">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="testMSCourseScheduleAction:" destination="-1" eventType="touchUpInside" id="e4P-ve-tpr"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B6J-iT-9aa">
+                    <rect key="frame" x="35" y="70" width="305" height="30"/>
+                    <state key="normal" title="测试单天可授课时间弹层">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="testConfigTeachableTimeVCAction:" destination="-1" eventType="touchUpInside" id="bLy-nm-Qkb"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="zIe-FJ-1NB" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="35" id="5MF-f4-qcx"/>
+                <constraint firstItem="zIe-FJ-1NB" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="25" id="62R-xq-zIr"/>
+                <constraint firstItem="B6J-iT-9aa" firstAttribute="top" secondItem="zIe-FJ-1NB" secondAttribute="top" constant="45" id="FsF-1Y-Pxv"/>
+                <constraint firstItem="B6J-iT-9aa" firstAttribute="width" secondItem="zIe-FJ-1NB" secondAttribute="width" id="Ot8-SX-web"/>
+                <constraint firstItem="B6J-iT-9aa" firstAttribute="height" secondItem="zIe-FJ-1NB" secondAttribute="height" id="pNX-VH-ckt"/>
+                <constraint firstItem="B6J-iT-9aa" firstAttribute="leading" secondItem="zIe-FJ-1NB" secondAttribute="leading" id="tUe-NB-JqJ"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+            <point key="canvasLocation" x="609.5" y="297.5"/>
+        </view>
+    </objects>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>

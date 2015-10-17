@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="60" id="KGk-i7-Jjw" customClass="NewPlayerCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="59"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="QB.png" translatesAutoresizingMaskIntoConstraints="NO" id="2dJ-gS-rMp">
+                        <rect key="frame" x="10" y="10" width="40" height="40"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="40" id="Alg-mI-Vkl"/>
+                            <constraint firstAttribute="height" constant="40" id="DBA-8M-yja"/>
+                        </constraints>
+                    </imageView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N57-wm-haY">
+                        <rect key="frame" x="245" y="15" width="65" height="30"/>
+                        <color key="backgroundColor" red="0.84313725490000002" green="0.15686274510000001" blue="0.090196078430000007" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="65" id="bCS-vX-gYH"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <state key="normal" title="0.5奖励">
+                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                    </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="完善个人资料" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kid-ez-FPl">
+                        <rect key="frame" x="73" y="19" width="102" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="102" id="TMs-HI-tM8"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottomMargin" secondItem="2dJ-gS-rMp" secondAttribute="bottom" constant="1.5" id="0Hr-om-nNQ"/>
+                    <constraint firstItem="kid-ez-FPl" firstAttribute="leading" secondItem="2dJ-gS-rMp" secondAttribute="trailing" constant="23" id="2WE-UR-Idn"/>
+                    <constraint firstAttribute="centerY" secondItem="kid-ez-FPl" secondAttribute="centerY" id="3XO-6b-1lR"/>
+                    <constraint firstItem="kid-ez-FPl" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="11" id="D7q-uJ-lwy"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="N57-wm-haY" secondAttribute="trailing" constant="2" id="E7d-DN-qga"/>
+                    <constraint firstAttribute="centerY" secondItem="N57-wm-haY" secondAttribute="centerY" id="Ggm-8y-tCJ"/>
+                    <constraint firstItem="2dJ-gS-rMp" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="2" id="IIw-y8-LSt"/>
+                    <constraint firstItem="N57-wm-haY" firstAttribute="centerY" secondItem="2dJ-gS-rMp" secondAttribute="centerY" id="RyI-Tx-2QX"/>
+                    <constraint firstAttribute="centerY" secondItem="2dJ-gS-rMp" secondAttribute="centerY" id="b8s-IP-szU"/>
+                    <constraint firstItem="2dJ-gS-rMp" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="2" id="gUg-yD-AQR"/>
+                    <constraint firstItem="N57-wm-haY" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="7" id="oAw-jy-RK0"/>
+                    <constraint firstItem="N57-wm-haY" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="7" id="uhl-wn-aiR"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="N57-wm-haY" secondAttribute="bottom" constant="7" id="wO5-k6-ug3"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="kid-ez-FPl" secondAttribute="bottom" constant="11.5" id="xgk-W6-DFu"/>
+                </constraints>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="Ggm-8y-tCJ"/>
+                        <exclude reference="uhl-wn-aiR"/>
+                        <exclude reference="wO5-k6-ug3"/>
+                    </mask>
+                </variation>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="contentLabel" destination="kid-ez-FPl" id="Pze-ve-bod"/>
+                <outlet property="headIV" destination="2dJ-gS-rMp" id="mGO-M1-qbW"/>
+                <outlet property="priceButton" destination="N57-wm-haY" id="8hh-5L-clb"/>
+            </connections>
+            <point key="canvasLocation" x="258" y="323"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="QB.png" width="40" height="40"/>
+    </resources>
+</document>

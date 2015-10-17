@@ -1,0 +1,1 @@
+../../../shareSDK/sharesdk-lib/SSWebServiceConnector.h

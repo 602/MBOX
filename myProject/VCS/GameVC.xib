@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GameVC">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T4a-7p-geM">
+                    <rect key="frame" x="18" y="566" width="160" height="40"/>
+                    <color key="backgroundColor" red="0.88235294119999996" green="0.2470588235" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="ppf-Nd-1Kw"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                    <state key="normal" title="个人下载">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="doneAppSelf:" destination="-1" eventType="touchUpInside" id="EDr-sP-aVV"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bDd-vb-o7g">
+                    <rect key="frame" x="197" y="566" width="160" height="40"/>
+                    <color key="backgroundColor" red="0.88235294119999996" green="0.2470588235" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="uxw-Wl-kRm"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                    <state key="normal" title="邀请好友下载">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="shareOtherAction:" destination="-1" eventType="touchUpInside" id="SQH-eO-Wh8"/>
+                    </connections>
+                </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kBn-rG-Vx8">
+                    <rect key="frame" x="18" y="16" width="339" height="538"/>
+                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="bDd-vb-o7g" secondAttribute="trailing" constant="18" id="0mi-xH-6MN"/>
+                <constraint firstAttribute="bottom" secondItem="bDd-vb-o7g" secondAttribute="bottom" constant="61" id="1zN-84-uiN"/>
+                <constraint firstItem="kBn-rG-Vx8" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="18" id="95c-F4-Ffr"/>
+                <constraint firstItem="T4a-7p-geM" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="18" id="AYT-fA-SQC"/>
+                <constraint firstAttribute="trailing" secondItem="kBn-rG-Vx8" secondAttribute="trailing" constant="18" id="AxM-Hb-OuI"/>
+                <constraint firstAttribute="bottom" secondItem="T4a-7p-geM" secondAttribute="bottom" constant="61" id="Cid-1T-dmy"/>
+                <constraint firstItem="kBn-rG-Vx8" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="16" id="DKp-e5-GCR"/>
+                <constraint firstItem="bDd-vb-o7g" firstAttribute="leading" secondItem="T4a-7p-geM" secondAttribute="trailing" constant="19" id="Z7g-XA-xzf"/>
+                <constraint firstItem="bDd-vb-o7g" firstAttribute="width" secondItem="T4a-7p-geM" secondAttribute="width" id="cdF-Po-pSj"/>
+                <constraint firstItem="bDd-vb-o7g" firstAttribute="top" secondItem="kBn-rG-Vx8" secondAttribute="bottom" constant="12" id="fi3-Nc-CFB"/>
+            </constraints>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+            <point key="canvasLocation" x="486.5" y="352.5"/>
+        </view>
+    </objects>
+</document>

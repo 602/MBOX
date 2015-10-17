@@ -1,0 +1,75 @@
+//
+//  CommonUtility.m
+//  SearchV3Demo
+//
+//  Created by songjian on 13-8-22.
+//  Copyright (c) 2013年 songjian. All rights reserved.
+//
+
+#import "CommonUtility.h"
+
+@implementation CommonUtility
+
++ (MAMapRect)minMapRectForMapPoints:(MAMapPoint *)mapPoints count:(NSUInteger)count
+{
+    if (mapPoints == NULL || count <= 1)
+    {
+        NSLog(@"InvalidArgumentException for %s", __func__);
+        return MAMapRectMake(0, 0, 0, 0);
+    }
+    
+     CGFloat minX = mapPoints[0].x, minY = mapPoints[0].y;
+     CGFloat maxX = minX, maxY = minY;
+     
+     /* Traverse and find the min, max. */
+    for (int i = 1; i < count; i++)
+    {
+        MAMapPoint point = mapPoints[i];
+        
+        if (point.x < minX)
+        {
+            minX = point.x;
+        }
+        
+        if (point.x > maxX)
+        {
+            maxX = point.x;
+        }
+        
+        if (point.y < minY)
+        {
+            minY = point.y;
+        }
+        
+        if (point.y > maxY)
+        {
+            maxY = point.y;
+        }
+    }
+    
+    /* Construct outside min rectangle. */
+    return MAMapRectMake(minX, minY, fabs(maxX - minX), fabs(maxY - minY));
+}
+
++ (MAMapRect)minMapRectForAnnotations:(NSArray *)annotations
+{
+    if (annotations.count <= 1)
+    {
+        NSLog(@"InvalidArgumentException for %s", __func__);
+        return MAMapRectMake(0, 0, 0, 0);
+    }
+    
+    MAMapPoint *mapPoints = (MAMapPoint*)malloc(annotations.count * sizeof(MAMapPoint));
+    
+    [annotations enumerateObjectsUsingBlock:^(id<MAAnnotation> obj, NSUInteger idx, BOOL *stop) {
+        mapPoints[idx] = MAMapPointForCoordinate([obj coordinate]);
+    }];
+    
+    MAMapRect minMapRect = [self minMapRectForMapPoints:mapPoints count:annotations.count];
+    
+    free(mapPoints), mapPoints = NULL;
+    
+    return minMapRect;
+}
+
+@end

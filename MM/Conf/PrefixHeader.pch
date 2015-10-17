@@ -1,0 +1,85 @@
+//
+//  PrefixHeader.pch
+//  myProject
+//
+//  Created by Apple on 15/5/31.
+//  Copyright (c) 2015年 王涛. All rights reserved.
+//
+
+#ifndef myProject_PrefixHeader_pch
+#define myProject_PrefixHeader_pch
+
+#ifdef __OBJC__
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+#import <CoreData/CoreData.h>
+#import <QuartzCore/QuartzCore.h>
+#import <CoreLocation/CoreLocation.h>
+
+//Def.
+#import "constdef.h"
+#import "macrodef.h"
+
+//NetWork
+#import "NetWorkApi.h"
+#import "NetWorkRequest.h"
+#import "MMJsonParse.h"
+
+//Vendor
+#import <AFNetworking.h>//网络
+#import <SDWebImageManager.h>//图片
+#import <Masonry.h>//自动布局
+#import <MagicalRecord.h>//私有方法处理
+#import <IQKeyboardManager.h>//弹键盘处理
+#import <MAMapKit/MAMapKit.h>//高德地图
+#import <AlipaySDK/AlipaySDK.h>//阿里支付
+#import <APService.h>//极光
+#import <MobClick.h>//友盟
+#import <WXApi.h>//weixin
+#import <EaseMob.h>//环信
+
+#import "MBProgressHUD.h"
+#import "GCDObjC.h"
+#import "UICKeyChainStore.h"
+
+//Category
+#import "UIView+Frame.h"
+#import "UIColor+theme.h"
+#import "UIImage+Blur.h"
+#import "UIImage+Utility.h"
+#import "UIAlertView+fram.h"
+#import "UIColor+theme.h"
+#import "UIView+Hierarchy.h"
+#import "UIViewController+UINavigationBar.h"
+#import "NSString+Size.h"
+#import "UIViewController+Xib.h"
+#import "UIButton+Theme.h"
+#import "QQObjectSafe.h"//安全检查
+#import "UITabBarController+hidable.h"
+#import "UIViewController+RNFullScreenScroll.h"
+#import "RNFullScreenScroll.h"
+
+// Uiutls
+#import "UIUtils.h"
+#import "Utils.h"
+#import "UIDeviceUtil.h"
+
+//Support
+#import "AppSystem.h"
+#import "AppAppearance.h"
+#import "LocationService.h"
+#import "EvaluateService.h"
+#import "Reachability.h"
+
+//Cache
+#import "Cache.h"
+
+//Model
+#import "MenuCellModel.h"
+
+//测试
+#import "TestViewControllerHome.h"
+
+#endif
+
+#endif
