@@ -28,7 +28,7 @@
 }
 
 + (UIColor *)themeGreenColor {
-    return [UIColor colorWithRed:(225.0f / 255.0f) green:(63.0f / 255.0f) blue:(34.0f / 255.0f) alpha:1.0f];
+    return [UIColor colorWithRed:(33.0f / 255.0f) green:(33.0f / 255.0f) blue:(33.0f / 255.0f) alpha:1.0f];
 }
 
 + (UIColor *)themeGreenTwoColor {
