@@ -20,6 +20,12 @@
     NSDictionary *obj = [dic objectForKey:@"data"];
     mUserModel.userIndex = [[obj objectForKey:@"userIndex"] integerValue];
     mUserModel.userSmallHeadImgUrl = [[obj objectForKey:@"userSmallHeadImgUrl"]safeString];
+    mUserModel.userNick = [[obj objectForKey:@"userNick"]safeString];
+    mUserModel.userSex = [[obj objectForKey:@"userSex"]safeString];
+    mUserModel.userBirthday = [[obj objectForKey:@"userBirthday"]safeString];
+    mUserModel.userProfession = [[obj objectForKey:@"userProfession"]safeString];
+    mUserModel.userCity = [[obj objectForKey:@"userCity"]safeString];
+    
     return mUserModel;
 }
 

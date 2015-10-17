@@ -10,30 +10,57 @@
 #import "infoCell.h"
 
 @interface InformationModel : NSObject
-@property (strong ,nonatomic) NSString *title;
-@property (strong ,nonatomic) NSString *subTitle;
-+ (InformationModel *)modelWith:(NSString *)title and:(NSString *)subTitle;
+@property (strong ,nonatomic) NSString *userNick;
+@property (strong ,nonatomic) NSString *userSex;
+@property (strong ,nonatomic) NSString *userBirthday;
+@property (strong ,nonatomic) NSString *userProfession;
+@property (strong ,nonatomic) NSString *userCity;
++ (InformationModel *)infoModel;
 @end
 
 @implementation InformationModel
 
-+ (InformationModel *)modelWith:(NSString *)title and:(NSString *)subTitle {
++ (InformationModel *)infoModel {
     InformationModel *model = [[InformationModel alloc] init];
-    model.title = title;
-    model.subTitle = subTitle;
+    if ([MUserModel sharedMUserModel].userNick) {
+        model.userNick = [MUserModel sharedMUserModel].userNick;
+    }else {
+        model.userNick = @"修改昵称";
+    }
+    if ([MUserModel sharedMUserModel].userNick) {
+        model.userSex = [MUserModel sharedMUserModel].userSex;
+    }else {
+        model.userSex = @"修改性别";
+    }
+    if ([MUserModel sharedMUserModel].userNick) {
+        model.userBirthday = [MUserModel sharedMUserModel].userBirthday;
+    }else {
+        model.userBirthday = @"修改生日";
+    }
+    if ([MUserModel sharedMUserModel].userNick) {
+        model.userProfession = [MUserModel sharedMUserModel].userProfession;
+    }else {
+        model.userProfession = @"修改职业 ";
+    }
+    if ([MUserModel sharedMUserModel].userNick) {
+        model.userCity = [MUserModel sharedMUserModel].userCity;
+    }else {
+        model.userCity = @"修改城市";
+    }
     return model;
 }
 
 @end
 
-@interface InformationVC ()<UITableViewDataSource,UITableViewDelegate>
+@interface InformationVC ()<UITableViewDataSource,UITableViewDelegate,infoCellDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *headImageView;
 @property (strong, nonatomic) IBOutlet UITableView *infoTV;
 @property (strong, nonatomic) IBOutlet UIView *infoHV;
 @property (strong, nonatomic) IBOutlet UIButton *commitButton;
 
 @property (strong, nonatomic) NSArray *dataArray;
-
+@property (strong, nonatomic) InformationModel *infoModel;
+@property (strong, nonatomic) UIImage *headImage;
 @end
 
 @implementation InformationVC
@@ -51,14 +78,8 @@
 #pragma mark - Private Method
 
 - (void)initData {
-    
-    InformationModel *model_1 = [InformationModel modelWith:@"昵称" and:[MUserModel sharedMUserModel].userNick];
-    InformationModel *model_2 = [InformationModel modelWith:@"性别" and:[MUserModel sharedMUserModel].userSex];
-    InformationModel *model_3 = [InformationModel modelWith:@"生日" and:[MUserModel sharedMUserModel].userBirthday];
-    InformationModel *model_4 = [InformationModel modelWith:@"职业" and:[MUserModel sharedMUserModel].userProfession];
-    InformationModel *model_5 = [InformationModel modelWith:@"城市" and:[MUserModel sharedMUserModel].userCity];
-    self.dataArray = @[model_1,model_2,model_3,model_4,model_5];
-    
+    self.infoModel = [InformationModel infoModel];
+    self.dataArray = @[self.infoModel.userNick,self.infoModel.userSex,self.infoModel.userBirthday,self.infoModel.userProfession,self.infoModel.userCity];
 }
 
 - (void)initTableView {
@@ -83,10 +104,35 @@
     return self.dataArray.count;
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    InformationModel *model = self.dataArray[indexPath.row];
+    NSString *detailText = self.dataArray[indexPath.row];
     infoCell *cell = [tableView dequeueReusableCellWithIdentifier:infoCellIdentifier forIndexPath:indexPath];
-    cell.headLabel.text = model.title;
-    cell.informationTF.text = model.subTitle;
+    cell.delegate = self;
+    switch (indexPath.row) {
+        case 0: {
+            cell.headLabel.text = @"昵称";
+        }
+            break;
+        case 1: {
+            cell.headLabel.text = @"性别";
+        }
+            break;
+        case 2: {
+            cell.headLabel.text = @"生日";
+        }
+            break;
+        case 3: {
+            cell.headLabel.text = @"职业";
+        }
+            break;
+        case 4: {
+            cell.headLabel.text = @"城市";
+        }
+            break;
+            
+        default:
+            break;
+    }
+    cell.informationTF.text = detailText;
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
@@ -104,13 +150,41 @@
 #pragma mark - Event Respnoce
 
 - (IBAction)commitAction:(UIButton *)sender {
-    
-    
+     NSDictionary *param = [NSDictionary dictionaryWithObjects:@[[Cache sharedCache].tokenId,self.headImage ,self.infoModel.userNick,self.infoModel.userSex,self.infoModel.userBirthday,self.infoModel.userProfession,self.infoModel.userCity] forKeys:@[@"tokenId",@"imageFile",@"userNick",@"userSex",@"userBirthday",@"userProfession",@"userCity"]];
+    [Utils showLoadingView];
+    [[NetWorkApi sharedNetWorkApi] updateUserInfo:param success:^(id obj) {
+        [Utils hideLoadingView];
+        [self initData];
+        [self.infoTV reloadData];
+    } failure:^(NSError *error) {
+        [Utils showToastWithText:@"网络错误！"];
+    }];
 }
 
 - (void)didClickOnHeadImage:(UITapGestureRecognizer *)tap {
     
 }
+
+- (void)textFieldDidChange:(infoCell *)cell {
+    NSLog(@"更新资料");
+    if ([cell.headLabel.text isEqualToString:@"昵称"]) {
+        self.infoModel.userNick = cell.informationTF.text;
+    }else if ([cell.headLabel.text isEqualToString:@"性别"]) {
+        self.infoModel.userSex = cell.informationTF.text;
+    }
+    else if ([cell.headLabel.text isEqualToString:@"生日"]) {
+        self.infoModel.userBirthday = cell.informationTF.text;
+    }
+    else if ([cell.headLabel.text isEqualToString:@"职业"]) {
+        self.infoModel.userProfession = cell.informationTF.text;
+    }
+    else if ([cell.headLabel.text isEqualToString:@"城市"]) {
+        self.infoModel.userCity = cell.informationTF.text;
+    }
+}
+
+#pragma mark - Setters and Getters
+
 
 /*
 #pragma mark - Navigation
