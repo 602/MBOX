@@ -53,13 +53,13 @@
     __weak typeof(self) weakSelf = self;
     [[NetWorkApi sharedNetWorkApi] enterInMoneyHome:param success:^(id obj) {
         QQLog(@"登录成功: %@",obj);
-        MUserModel *mUserModel = obj;
+//        MUserModel *mUserModel = obj;
         [Utils hideLoadingView];
-        if (mUserModel.statusCode == 200) {
+        if ([MUserModel sharedMUserModel].statusCode == 200) {
             //磁盘缓存
             [[Cache sharedCache] setUsername:weakSelf.phoneTF.text password:weakSelf.passwordTF.text];
             [[Cache sharedCache] setCookie:YES];
-            [[Cache sharedCache] setTokenId:mUserModel.tokenId];
+            [[Cache sharedCache] setTokenId:[MUserModel sharedMUserModel].tokenId];
             
             AppDelegate *app = (AppDelegate *)[UIApplication sharedApplication].delegate;
             [app replaceRootControllerBy:kRootViewControllerTypeMainVC];

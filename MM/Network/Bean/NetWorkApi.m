@@ -62,14 +62,17 @@ SINGLETON_GCD(NetWorkApi);
         QQLog(@"啦啦啦: %@",obj);
         success (obj);
     } failure:^(NSError *error) {
+        QQLog(@"失败: %@",error);
         failure (error);
     }];
 }
 
 //注销
 - (void)cancelAppWithsuccess:(ObjectBlock)success failure:(ErrorBlock)failure {
+    QQLog(@"tokenId: %@",[Cache sharedCache].tokenId);
     NSDictionary *param = [NSDictionary dictionaryWithObjects:@[[Cache sharedCache].tokenId] forKeys:@[@"tokenId"]];
     [[NetWorkRequest sharedNetWorkRequest]AFPostByApiName:@"user/logout" Params:param success:^(id obj) {
+        QQLog(@"注销: %@",obj);
         success (obj);
     } failure:^(NSError *error) {
         failure (error);
