@@ -30,16 +30,15 @@
 //获取限时推荐列表
 - (void)getAllTaskList:(NSDictionary *)param success:(ObjectBlock)success failure:(ErrorBlock)failure;
 
-<<<<<<< HEAD
 //收益
 - (void)getUserMoneyListWithSuccess:(ObjectBlock)success failure:(ErrorBlock)failure;
 
 
 //注销
 - (void)cancelAppWithsuccess:(ObjectBlock)success failure:(ErrorBlock)failure;
-=======
+
 //修改个人信息
 - (void)updateUserInfo:(NSDictionary *)param success:(ObjectBlock)success failure:(ErrorBlock)failure;
->>>>>>> origin/master
+
 
 @end
