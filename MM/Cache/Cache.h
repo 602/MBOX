@@ -28,6 +28,9 @@
 - (void)setCookie:(BOOL)_isSignin;
 - (BOOL)cookie;
 
+- (void)setIsAutoLogin:(BOOL)isAutoLogin;
+- (BOOL)isAutoLogin;
+
 - (void)setSession:(long)session;
 - (long)session;
 

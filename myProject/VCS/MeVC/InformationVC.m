@@ -10,6 +10,7 @@
 #import "infoCell.h"
 
 @interface InformationModel : NSObject
+@property (strong ,nonatomic) UIImage *headImage;
 @property (strong ,nonatomic) NSString *userNick;
 @property (strong ,nonatomic) NSString *userSex;
 @property (strong ,nonatomic) NSString *userBirthday;
@@ -78,8 +79,8 @@
 #pragma mark - Private Method
 
 - (void)initData {
-    self.infoModel = [InformationModel infoModel];
-    self.dataArray = @[self.infoModel.userNick,self.infoModel.userSex,self.infoModel.userBirthday,self.infoModel.userProfession,self.infoModel.userCity];
+    InformationModel *model = [InformationModel infoModel];
+    self.dataArray = @[model.userNick,model.userSex,model.userBirthday,model.userProfession,model.userCity];
 }
 
 - (void)initTableView {
@@ -150,13 +151,34 @@
 #pragma mark - Event Respnoce
 
 - (IBAction)commitAction:(UIButton *)sender {
-     NSDictionary *param = [NSDictionary dictionaryWithObjects:@[[Cache sharedCache].tokenId,self.headImage ,self.infoModel.userNick,self.infoModel.userSex,self.infoModel.userBirthday,self.infoModel.userProfession,self.infoModel.userCity] forKeys:@[@"tokenId",@"imageFile",@"userNick",@"userSex",@"userBirthday",@"userProfession",@"userCity"]];
+    
+    NSMutableDictionary *paramDict = [[NSMutableDictionary alloc] initWithObjects:@[[Cache sharedCache].tokenId] forKeys:@[@"tokenId"]];
+    if (self.infoModel.headImage) {
+        [paramDict setObject:self.infoModel.headImage forKey:@"imageFile"];
+    }else if (self.infoModel.userNick) {
+        [paramDict setObject:self.infoModel.userNick forKey:@"userNick"];
+    }else if (self.infoModel.userSex) {
+        [paramDict setObject:self.infoModel.userSex forKey:@"userSex"];
+    }else if (self.infoModel.userProfession) {
+        [paramDict setObject:self.infoModel.userProfession forKey:@"userProfession"];
+    }else if (self.infoModel.userBirthday) {
+        [paramDict setObject:self.infoModel.userBirthday forKey:@"userBirthday"];
+    }else if (self.infoModel.userCity) {
+        [paramDict setObject:self.infoModel.userCity forKey:@"userCity"];
+    }else {
+        [self.navigationController popViewControllerAnimated:YES];
+    }
+    
     [Utils showLoadingView];
-    [[NetWorkApi sharedNetWorkApi] updateUserInfo:param success:^(id obj) {
+    [[NetWorkApi sharedNetWorkApi] updateUserInfo:paramDict success:^(id obj) {
         [Utils hideLoadingView];
         [self initData];
-        [self.infoTV reloadData];
+        [[GCDQueue mainQueue] queueBlock:^{
+            [self.infoTV reloadData];
+        }];
+        
     } failure:^(NSError *error) {
+        [Utils hideLoadingView];
         [Utils showToastWithText:@"网络错误！"];
     }];
 }
@@ -185,7 +207,12 @@
 
 #pragma mark - Setters and Getters
 
-
+- (InformationModel *)infoModel {
+    if (!_infoModel) {
+        _infoModel = [[InformationModel alloc] init];
+    }
+    return _infoModel;
+}
 /*
 #pragma mark - Navigation
 

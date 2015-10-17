@@ -74,7 +74,9 @@
     [self.tableView registerNib:nib forCellReuseIdentifier:menuCellIdentifier];
     self.tableView.tableHeaderView = self.headBackView;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    [self autoLoginAction];
+    if ([Cache sharedCache].isAutoLogin) {
+        [self autoLoginAction];
+    }
 }
 
 - (void)viewWillLayoutSubviews {
@@ -105,6 +107,7 @@
         if (mUserModel.statusCode == 200) {
             //磁盘缓存
             [[Cache sharedCache] setCookie:YES];
+            [[Cache sharedCache] setTokenId:mUserModel.tokenId];
             [weakSelf downLoadData];
         }else {
             [Utils showToastWithText:@"网络错误,请重新登录!"];

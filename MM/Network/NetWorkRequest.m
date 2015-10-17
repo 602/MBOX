@@ -61,8 +61,8 @@ SINGLETON_GCD(NetWorkRequest);
  *  @return block
  */
 - (void)postByApiName:(NSString *)apiName
-              Params:(NSDictionary*)params
-             success:(DictionaryBlock)success
+              Params:(id)params
+             success:(ObjectBlock)success
              failure:(ErrorBlock)failure{
     
     NSString *path = [NSString stringWithFormat:@"%@/%@",self.basicURL,apiName];
@@ -70,6 +70,9 @@ SINGLETON_GCD(NetWorkRequest);
     
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
     [request setHTTPMethod:@"POST"];
+    NSString *stringBoundary = @"0xKhTmLbOuNdArY";
+    NSString *contentType = [NSString stringWithFormat:@"multipart/form-data; boundary=%@",stringBoundary];
+    [request addValue:contentType forHTTPHeaderField: @"Content-Type"];
     NSError*  error;
     
     if ([NSJSONSerialization isValidJSONObject:params]) {
@@ -83,12 +86,7 @@ SINGLETON_GCD(NetWorkRequest);
                 NSString*  str = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
                 QQLog(@"..........%@",str);
                 id  jsonData = [NSJSONSerialization JSONObjectWithData:data options:0 error:Nil];
-                if ([jsonData  isKindOfClass:[NSArray  class]]) {
-                    NSDictionary*  dic = jsonData[0];
-                    success(dic);
-                }else{
-                    success(jsonData);
-                }
+                success(jsonData);
             }else {
                 failure(error);
             }
@@ -133,7 +131,7 @@ SINGLETON_GCD(NetWorkRequest);
  *  @param failure 失败block回调
  */
 -(void)AFPostByApiName:(NSString *)apiName
-                Params:(NSDictionary *)params
+                Params:(id)params
                success:(ObjectBlock)success
                failure:(ErrorBlock)failure{
 

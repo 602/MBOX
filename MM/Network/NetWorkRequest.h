@@ -29,8 +29,8 @@
  *  @return block
  */
 -(void)postByApiName:(NSString *)apiName
-              Params:(NSDictionary*)params
-             success:(DictionaryBlock)success
+              Params:(id)params
+             success:(ObjectBlock)success
              failure:(ErrorBlock)failure;
 
 /**

@@ -9,13 +9,29 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "myProject/VCS/MeVC/infoCell.m"
-            timestampString = "466764844.658787"
+            filePath = "myProject/VCS/MenuVC/MenuVC.m"
+            timestampString = "466769401.525979"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "25"
-            endingLineNumber = "25"
-            landmarkName = "-textFieldDidEndEditing:"
+            startingLineNumber = "110"
+            endingLineNumber = "110"
+            landmarkName = "-autoLoginAction"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "myProject/VCS/MeVC/InformationVC.m"
+            timestampString = "466769419.508999"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "155"
+            endingLineNumber = "155"
+            landmarkName = "-commitAction:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

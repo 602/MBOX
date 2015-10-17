@@ -56,8 +56,8 @@ SINGLETON_GCD(NetWorkApi);
 }
 
 //修改个人信息
-- (void)updateUserInfo:(NSDictionary *)param success:(ObjectBlock)success failure:(ErrorBlock)failure {
-    [[NetWorkRequest sharedNetWorkRequest] AFPostByApiName:@"user/updateUserBasic" Params:param success:^(id obj) {
+- (void)updateUserInfo:(id)param success:(ObjectBlock)success failure:(ErrorBlock)failure {
+    [[NetWorkRequest sharedNetWorkRequest] postByApiName:@"user/updateUserBasic" Params:param success:^(id obj) {
         QQLog(@"修改个人信息：%@",obj);
         MUserModel *mUserModel = [MMJsonParse parseMUserModel:obj];
         success(mUserModel);
