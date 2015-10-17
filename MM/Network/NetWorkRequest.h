@@ -57,6 +57,13 @@
                 ImagesArray:(NSArray*)images
                     success:(ObjectBlock)success
                     failure:(ErrorBlock)failure;
+/**
+ * content-tpye是multipart/form-data
+ */
+- (void)AFPostMultipartFormByApiName:(NSString *)apiName
+                              Params:(id)params
+                             success:(ObjectBlock)success
+                             failure:(ErrorBlock)failure;
 
 /**
  *  第三方的post上传单张图片请求方式

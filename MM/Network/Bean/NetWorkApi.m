@@ -81,6 +81,15 @@ SINGLETON_GCD(NetWorkApi);
 
 //修改个人信息
 - (void)updateUserInfo:(id)param success:(ObjectBlock)success failure:(ErrorBlock)failure {
+    
+//    [[NetWorkRequest sharedNetWorkRequest] AFPostMultipartFormByApiName:@"user/updateUserBasic" Params:param success:^(id obj) {
+//        QQLog(@"修改个人信息：%@",obj);
+//        MUserModel *mUserModel = [MMJsonParse parseMUserModel:obj];
+//        success(mUserModel);
+//    } failure:^(NSError *error) {
+//        failure(error);
+//    }];
+    
     [[NetWorkRequest sharedNetWorkRequest] postByApiName:@"user/updateUserBasic" Params:param success:^(id obj) {
         QQLog(@"修改个人信息：%@",obj);
         MUserModel *mUserModel = [MMJsonParse parseMUserModel:obj];

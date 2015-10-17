@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MM/Network/Bean/NetWorkApi.m"
-            timestampString = "466770563.403904"
+            timestampString = "466774491.897578"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "72"
-            endingLineNumber = "72"
+            startingLineNumber = "81"
+            endingLineNumber = "81"
             landmarkName = "-detailItem:success:failure:"
             landmarkType = "5">
          </BreakpointContent>
@@ -57,13 +57,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MM/Network/Bean/NetWorkApi.m"
-            timestampString = "466771843.115463"
+            filePath = "MM/Network/NetWorkRequest.m"
+            timestampString = "466774472.657725"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "63"
-            endingLineNumber = "63"
-            landmarkName = "-updateUserInfo:success:failure:"
+            startingLineNumber = "214"
+            endingLineNumber = "214"
+            landmarkName = "-AFPostMultipartFormByApiName:Params:success:failure:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -74,12 +74,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MM/Network/NetWorkRequest.m"
-            timestampString = "466773835.457007"
+            timestampString = "466774524.744801"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "114"
-            endingLineNumber = "114"
-            landmarkName = "-postByApiName:Params:success:failure:"
+            startingLineNumber = "216"
+            endingLineNumber = "216"
+            landmarkName = "-AFPostMultipartFormByApiName:Params:success:failure:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

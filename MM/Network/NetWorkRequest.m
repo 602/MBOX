@@ -64,7 +64,7 @@ SINGLETON_GCD(NetWorkRequest);
               Params:(id)params
              success:(ObjectBlock)success
              failure:(ErrorBlock)failure{
-    
+
     NSString *path = [NSString stringWithFormat:@"%@/%@",self.basicURL,apiName];
     NSURL *url = [NSURL URLWithString:path];
     
@@ -100,8 +100,8 @@ SINGLETON_GCD(NetWorkRequest);
 
     NSError*  error;
     if ([NSJSONSerialization isValidJSONObject:params]) {
-        NSData *jsonData = [NSJSONSerialization dataWithJSONObject:params options:NSJSONWritingPrettyPrinted error:&error];
-        [postBody appendData:[NSData dataWithData:jsonData]];
+//        NSData *jsonData = [NSJSONSerialization dataWithJSONObject:params options:NSJSONWritingPrettyPrinted error:&error];
+//        [postBody appendData:[NSData dataWithData:jsonData]];
         [postBody appendData:[[NSString stringWithFormat:@"\r\n--%@--\r\n",stringBoundary] dataUsingEncoding:NSUTF8StringEncoding]];
         [request  setHTTPBody:postBody];
         
@@ -208,7 +208,13 @@ SINGLETON_GCD(NetWorkRequest);
                               Params:(id)params
                              success:(ObjectBlock)success
                              failure:(ErrorBlock)failure {
-    [self.manager mu]
+    [self.manager POST:apiName parameters:params constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+        
+    } success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        success(responseObject);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        failure(error);
+    }];
 }
 
 /**
