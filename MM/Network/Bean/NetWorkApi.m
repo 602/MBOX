@@ -90,4 +90,16 @@ SINGLETON_GCD(NetWorkApi);
 
     }];
 }
+
+//限时分享详情
+- (void)detailItem:(id)param success:(ObjectBlock)success failure:(ErrorBlock)failure {
+    [[NetWorkRequest sharedNetWorkRequest] AFPostByApiName:@"/task/recommend/getDetail" Params:param success:^(id obj) {
+        QQLog(@"限时推荐详情：%@",obj);
+        
+        success(nil);
+    } failure:^(NSError *error) {
+        failure(error);
+    }];
+}
+
 @end

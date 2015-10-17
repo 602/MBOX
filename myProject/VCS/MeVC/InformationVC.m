@@ -28,22 +28,22 @@
     }else {
         model.userNick = @"修改昵称";
     }
-    if ([MUserModel sharedMUserModel].userNick) {
+    if ([MUserModel sharedMUserModel].userSex) {
         model.userSex = [MUserModel sharedMUserModel].userSex;
     }else {
         model.userSex = @"修改性别";
     }
-    if ([MUserModel sharedMUserModel].userNick) {
+    if ([MUserModel sharedMUserModel].userBirthday) {
         model.userBirthday = [MUserModel sharedMUserModel].userBirthday;
     }else {
         model.userBirthday = @"修改生日";
     }
-    if ([MUserModel sharedMUserModel].userNick) {
+    if ([MUserModel sharedMUserModel].userProfession) {
         model.userProfession = [MUserModel sharedMUserModel].userProfession;
     }else {
         model.userProfession = @"修改职业 ";
     }
-    if ([MUserModel sharedMUserModel].userNick) {
+    if ([MUserModel sharedMUserModel].userCity) {
         model.userCity = [MUserModel sharedMUserModel].userCity;
     }else {
         model.userCity = @"修改城市";

@@ -73,11 +73,37 @@ SINGLETON_GCD(NetWorkRequest);
     NSString *stringBoundary = @"0xKhTmLbOuNdArY";
     NSString *contentType = [NSString stringWithFormat:@"multipart/form-data; boundary=%@",stringBoundary];
     [request addValue:contentType forHTTPHeaderField: @"Content-Type"];
-    NSError*  error;
     
+    //create the body
+    NSMutableData *postBody = [NSMutableData data];
+    [postBody appendData:[[NSString stringWithFormat:@"--%@\r\n",stringBoundary] dataUsingEncoding:NSUTF8StringEncoding]];
+    //add key values from the NSDictionary object
+    NSEnumerator *keys = [params keyEnumerator];
+    int i;
+    for (i = 0; i < [params count]; i++) {
+        
+        NSString *tempKey = [keys nextObject];
+        
+        [postBody appendData:[[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"%@\"\r\n\r\n",tempKey] dataUsingEncoding:NSUTF8StringEncoding]];
+        
+        [postBody appendData:[[NSString stringWithFormat:@"%@",[params objectForKey:tempKey]] dataUsingEncoding:NSUTF8StringEncoding]];
+        
+        [postBody appendData:[[NSString stringWithFormat:@"\r\n--%@\r\n",stringBoundary] dataUsingEncoding:NSUTF8StringEncoding]];
+        
+    }
+    
+    //add data field and file data
+    
+    [postBody appendData:[@"Content-Disposition: form-data; name=\"data\"\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    [postBody appendData:[@"Content-Type: application/octet-stream\r\n\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
+
+    NSError*  error;
     if ([NSJSONSerialization isValidJSONObject:params]) {
         NSData *jsonData = [NSJSONSerialization dataWithJSONObject:params options:NSJSONWritingPrettyPrinted error:&error];
-        [request  setHTTPBody:jsonData];
+        [postBody appendData:[NSData dataWithData:jsonData]];
+        [postBody appendData:[[NSString stringWithFormat:@"\r\n--%@--\r\n",stringBoundary] dataUsingEncoding:NSUTF8StringEncoding]];
+        [request  setHTTPBody:postBody];
         
         NSURLSession *session = [NSURLSession sharedSession];
         NSURLSessionDataTask *task = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
@@ -85,8 +111,8 @@ SINGLETON_GCD(NetWorkRequest);
             if (!error) {
                 NSString*  str = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
                 QQLog(@"..........%@",str);
-                id  jsonData = [NSJSONSerialization JSONObjectWithData:data options:0 error:Nil];
-                success(jsonData);
+                id  returnData = [NSJSONSerialization JSONObjectWithData:data options:0 error:Nil];
+                success(returnData);
             }else {
                 failure(error);
             }
@@ -177,6 +203,14 @@ SINGLETON_GCD(NetWorkRequest);
         failure(error);
     }];
 }
+
+- (void)AFPostMultipartFormByApiName:(NSString *)apiName
+                              Params:(id)params
+                             success:(ObjectBlock)success
+                             failure:(ErrorBlock)failure {
+    [self.manager mu]
+}
+
 /**
  *  第三方的post上传单张图片请求方式
  *
@@ -202,6 +236,7 @@ SINGLETON_GCD(NetWorkRequest);
         failure(error);
     }];
 }
+
 
 //对照片进行处理之前，先将照片旋转到正确的方向，并且返回的imageOrientaion为0。
 - (UIImage *)fixOrientation:(UIImage *)aImage {

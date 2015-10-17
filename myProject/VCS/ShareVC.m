@@ -17,6 +17,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"分享";
+    [self downLoadDataFromNet];
 }
 - (IBAction)doneAppAction:(UIButton *)sender {
     QQLog(@"自己下载应用");
@@ -25,6 +26,9 @@
     QQLog(@"转发别人下载");
 }
 
+- (void)downLoadDataFromNet {
+    
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

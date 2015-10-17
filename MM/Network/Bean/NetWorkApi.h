@@ -38,7 +38,10 @@
 - (void)cancelAppWithsuccess:(ObjectBlock)success failure:(ErrorBlock)failure;
 
 //修改个人信息
-- (void)updateUserInfo:(NSDictionary *)param success:(ObjectBlock)success failure:(ErrorBlock)failure;
+- (void)updateUserInfo:(id)param success:(ObjectBlock)success failure:(ErrorBlock)failure;
+
+//限时分享详情
+- (void)detailItem:(id)param success:(ObjectBlock)success failure:(ErrorBlock)failure;
 
 
 @end
