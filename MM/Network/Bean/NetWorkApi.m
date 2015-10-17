@@ -58,6 +58,7 @@ SINGLETON_GCD(NetWorkApi);
 //收益
 - (void)getUserMoneyListWithSuccess:(ObjectBlock)success failure:(ErrorBlock)failure {
     NSDictionary *param = [NSDictionary dictionaryWithObjects:@[[Cache sharedCache].tokenId] forKeys:@[@"tokenId"]];
+    
     [[NetWorkRequest sharedNetWorkRequest]AFPostByApiName:@"/profit/getUserProfit" Params:param success:^(id obj) {
         QQLog(@"啦啦啦: %@",obj);
         success (obj);

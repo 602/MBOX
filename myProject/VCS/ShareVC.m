@@ -28,6 +28,13 @@
 
 - (void)downLoadDataFromNet {
     
+    NSMutableDictionary *paramDict = [[NSMutableDictionary alloc] initWithObjects:@[@"1"] forKeys:@[@"id"]];
+    
+    [[NetWorkApi sharedNetWorkApi] detailItem:paramDict success:^(id obj) {
+        
+    } failure:^(NSError *error) {
+        
+    }];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

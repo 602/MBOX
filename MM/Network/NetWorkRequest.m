@@ -39,13 +39,8 @@ SINGLETON_GCD(NetWorkRequest);
     NSURLSession *session = [NSURLSession sharedSession];
     NSURLSessionDataTask *task = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
         if (!error) {
-            id  jsonData = [NSJSONSerialization JSONObjectWithData:data options:0 error:Nil];
-            if ([jsonData  isKindOfClass:[NSArray  class]]) {
-                NSDictionary*  dic = jsonData[0];
-                success(dic);
-            }else{
-                success(jsonData);
-            }
+            id  returnData = [NSJSONSerialization JSONObjectWithData:data options:0 error:Nil];
+            success(returnData);
         }else {
             failure(error);
         }
